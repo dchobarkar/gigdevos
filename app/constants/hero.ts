@@ -6,15 +6,9 @@ export const HERO_CONTENT = {
   },
   subtext:
     "Frontend & full-stack development for fast-moving teams. I ship production-ready apps and interfaces—no endless discovery, no bloat.",
-  ctas: {
-    primary: {
-      label: "Start a Project",
-      href: "#contact",
-    },
-    secondary: {
-      label: "Book a Call",
-      href: "#contact",
-    },
+  cta: {
+    label: "Start a Project",
+    href: "#contact",
   },
   availability: {
     badge: "Available for gigs",

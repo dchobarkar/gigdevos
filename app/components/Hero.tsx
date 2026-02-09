@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-
 import { HERO_CONTENT } from "../constants/hero";
 
 export default function Hero() {
@@ -47,21 +46,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-8 flex flex-wrap gap-4"
+          className="mt-8"
         >
           <Link
-            href={HERO_CONTENT.ctas.primary.href}
+            href={HERO_CONTENT.cta.href}
             className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[var(--accent-cyan)] to-[var(--accent-purple)] px-5 py-3 text-sm font-medium text-[var(--cta-text)] hover:opacity-90 transition-opacity"
           >
-            {HERO_CONTENT.ctas.primary.label}
+            {HERO_CONTENT.cta.label}
             <ArrowRight size={16} />
-          </Link>
-          <Link
-            href={HERO_CONTENT.ctas.secondary.href}
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] px-5 py-3 text-sm font-medium text-[var(--foreground)] hover:border-[var(--accent-cyan)] hover:text-[var(--accent-cyan)] transition-colors"
-          >
-            <Calendar size={16} />
-            {HERO_CONTENT.ctas.secondary.label}
           </Link>
         </motion.div>
 

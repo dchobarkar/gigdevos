@@ -1,61 +1,67 @@
 import {
   LayoutDashboard,
-  Globe,
+  type LucideIcon,
   Bot,
   Settings,
   FileCode,
   Wrench,
-  type LucideIcon,
+  Globe,
 } from "lucide-react";
 
+/**
+ * Service card — outcome-focused, product build menu.
+ * Per service-instructions.md: title, one-line description, icon.
+ * Optional tech tags omitted for v1 to avoid tech overload.
+ */
 export interface Service {
   icon: LucideIcon;
   title: string;
   description: string;
-  tags: string[];
 }
 
+/** Section header per service-instructions.md */
+export const CAPABILITY_SECTION = {
+  title: "What I can build",
+  description:
+    "From idea to production — these are the products and interfaces I ship most often.",
+};
+
+/** 6 core build capabilities — final content from service-instructions.md */
 export const SERVICES: Service[] = [
   {
     icon: LayoutDashboard,
     title: "SaaS Dashboards",
     description:
-      "Data-heavy UIs, charts, and real-time metrics for product teams.",
-    tags: ["React", "Charts", "APIs"],
-  },
-  {
-    icon: Globe,
-    title: "Marketing Websites",
-    description: "Fast, SEO-friendly landing pages and campaign sites.",
-    tags: ["Next.js", "Tailwind", "Vercel"],
+      "Data-intensive product dashboards with analytics, charts, role systems, and operational insights.",
   },
   {
     icon: Bot,
     title: "AI Tool Interfaces",
-    description: "Chat UIs, prompt builders, and AI-powered workflows.",
-    tags: ["LLMs", "Streaming", "APIs"],
+    description:
+      "AI chat apps, copilots, and workflow interfaces powered by modern LLM integrations.",
+  },
+  {
+    icon: Globe,
+    title: "Marketing Websites",
+    description:
+      "High-converting marketing websites built for product launches, campaigns, and SEO performance.",
   },
   {
     icon: Settings,
     title: "Admin Panels",
-    description: "Internal tools and CRUD interfaces for operations.",
-    tags: ["Tables", "Auth", "DB"],
+    description:
+      "Secure back-office systems with CRUD operations, reporting, and access control.",
   },
   {
     icon: FileCode,
-    title: "Portfolio Sites",
-    description: "Developer and creative portfolios that convert.",
-    tags: ["Static", "MDX", "CMS"],
+    title: "Portfolio Websites",
+    description:
+      "Conversion-focused personal and professional portfolios designed to generate inbound leads.",
   },
   {
     icon: Wrench,
     title: "Internal Tools",
-    description: "Custom tooling to automate and streamline workflows.",
-    tags: ["Node", "Scripts", "Integrations"],
+    description:
+      "Custom internal platforms to streamline workflows, reporting, and team operations.",
   },
 ];
-
-export const CAPABILITY_SECTION = {
-  title: "What I build",
-  description: "Capability over case studies. Here's the kind of work I ship.",
-};

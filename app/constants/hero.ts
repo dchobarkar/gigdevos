@@ -1,17 +1,34 @@
+/**
+ * Hero section content — per hero-instructions.md
+ */
 export const HERO_CONTENT = {
-  terminalPrompt: "$ whoami",
+  terminal: {
+    command: "$ whoami",
+    output: "Freelance developer available for fast builds.",
+  },
   headline: {
-    main: "Building modern web apps",
-    highlight: "at startup speed.",
+    line1: "Shipping modern web apps",
+    line2: "at startup speed.",
   },
   subtext:
-    "Frontend & full-stack development for fast-moving teams. I ship production-ready apps and interfaces—no endless discovery, no bloat.",
-  cta: {
-    label: "Start a Project",
-    href: "#contact",
-  },
+    "I design and build SaaS dashboards, AI interfaces, marketing websites, and internal tools for founders and product teams — delivered fast, scalable, and production-ready.",
+  capabilityHighlights: [
+    "SaaS Dashboards",
+    "AI Tool Interfaces",
+    "Marketing Websites",
+    "Admin Panels",
+    "Internal Tools",
+  ],
   availability: {
-    badge: "Available for gigs",
-    status: "Ready to ship.",
+    badge: "Open for gigs",
+    note: "Currently accepting freelance & contract builds.",
+  },
+  cta: {
+    primary: {
+      label: "Start a build",
+      href: "#contact",
+    },
+    /** Platform keys for secondary CTAs — use CONTACT_LINKS in component */
+    secondaryPlatforms: ["linkedin", "github", "x"] as const,
   },
 };

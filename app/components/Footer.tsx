@@ -1,7 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FOOTER_CONTENT } from "../constants/footer";
+import { Mail, Linkedin, Github } from "lucide-react";
+import { FOOTER_CONTENT, type FooterLinkKey } from "../constants/footer";
+
+function XIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+const ICON_SIZE = 20;
+
+function FooterIcon({ linkKey }: { linkKey: FooterLinkKey }) {
+  switch (linkKey) {
+    case "email":
+      return <Mail size={ICON_SIZE} className="shrink-0" />;
+    case "linkedin":
+      return <Linkedin size={ICON_SIZE} className="shrink-0" />;
+    case "x":
+      return <XIcon size={ICON_SIZE} />;
+    case "github":
+      return <Github size={ICON_SIZE} className="shrink-0" />;
+  }
+}
 
 export default function Footer() {
   return (
@@ -21,22 +52,26 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-4 md:gap-6"
+            className="flex items-center gap-3"
             aria-label="Contact and profiles"
           >
-            {FOOTER_CONTENT.links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                {...(link.href.startsWith("http") && {
-                  target: "_blank",
-                  rel: "noopener noreferrer",
-                })}
-                className="text-sm text-[var(--muted)] hover:text-[var(--accent-cyan)] transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+            {FOOTER_CONTENT.links.map((link) => {
+              const isExternal = link.href.startsWith("http");
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  aria-label={link.label}
+                  {...(isExternal && {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
+                  className="p-2.5 rounded-lg text-[var(--muted)] hover:text-[var(--accent-cyan)] hover:bg-[var(--border)]/30 transition-colors"
+                >
+                  <FooterIcon linkKey={link.key} />
+                </a>
+              );
+            })}
           </motion.nav>
         </div>
       </div>

@@ -7,9 +7,14 @@ import { DEMOS, DEMOS_SECTION } from "../constants/demos";
 
 export default function DemoBuilds() {
   return (
-    <section id="demos" className="relative py-24 px-6 grid-overlay">
+    <section
+      id="demos"
+      className="relative py-24 px-6 grid-overlay"
+      aria-labelledby="demos-heading"
+    >
       <div className="mx-auto max-w-6xl">
         <motion.h2
+          id="demos-heading"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -26,7 +31,7 @@ export default function DemoBuilds() {
           {DEMOS_SECTION.description}
         </motion.p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {DEMOS.map((demo, i) => (
             <motion.article
               key={demo.title}
@@ -39,7 +44,7 @@ export default function DemoBuilds() {
               <div className="aspect-[5/3] bg-[var(--card)] border-b border-[var(--border)] flex items-center justify-center">
                 <div className="w-full h-full bg-gradient-to-br from-[var(--border)]/30 to-[var(--card)] flex items-center justify-center">
                   <span className="font-mono text-xs text-[var(--muted)]">
-                    Screenshot
+                    Demo preview
                   </span>
                 </div>
               </div>
@@ -47,7 +52,7 @@ export default function DemoBuilds() {
                 <h3 className="text-lg font-semibold text-[var(--foreground)] mb-2">
                   {demo.title}
                 </h3>
-                <p className="text-sm text-[var(--muted)] mb-4">
+                <p className="text-sm text-[var(--muted)] mb-4 leading-relaxed">
                   {demo.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -60,19 +65,25 @@ export default function DemoBuilds() {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-4">
                   <a
                     href={demo.liveUrl}
-                    className="inline-flex items-center gap-1.5 text-sm text-[var(--accent-cyan)] hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent-cyan)] hover:underline focus:outline-none focus:ring-2 focus:ring-[var(--accent-cyan)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
+                    aria-label={`${demo.title} — view live demo`}
                   >
-                    <ExternalLink size={14} />
-                    Live
+                    <ExternalLink size={14} aria-hidden />
+                    Live demo
                   </a>
                   <a
                     href={demo.repoUrl}
-                    className="inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-[var(--foreground)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-cyan)] focus:ring-offset-2 focus:ring-offset-[var(--background)] rounded"
+                    aria-label={`${demo.title} — view GitHub repository`}
                   >
-                    <Github size={14} />
+                    <Github size={14} aria-hidden />
                     Repo
                   </a>
                 </div>

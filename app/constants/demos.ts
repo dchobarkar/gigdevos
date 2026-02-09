@@ -1,57 +1,55 @@
+/**
+ * Demo builds — per demo-instructions.md.
+ * 4 flagship demos: product-style names, stack tags, live + repo links.
+ */
+
 export interface Demo {
   title: string;
   description: string;
   stack: string[];
-  image?: string;
   liveUrl: string;
   repoUrl: string;
 }
 
+/** Section header — capability lab / production-grade showcases */
+export const DEMOS_SECTION = {
+  title: "Demo builds",
+  description:
+    "Production-grade capability showcases. Deployable demos that mirror real product work — not tutorials.",
+};
+
+/** 4 flagship demos — naming per doc (PulseBoard, CopilotUI, LaunchFrame, InsightGrid) */
 export const DEMOS: Demo[] = [
   {
-    title: "Dashboard UI kit",
-    description: "Reusable data tables, charts, and layout components.",
-    stack: ["React", "Tailwind", "Recharts"],
-    image: "/api/placeholder/400/240",
+    title: "PulseBoard",
+    description:
+      "SaaS dashboard system with sidebar nav, analytics, data tables, charts, and settings — dark/light theme.",
+    stack: ["Next.js", "Tailwind", "Recharts", "Framer Motion"],
     liveUrl: "#",
     repoUrl: "#",
   },
   {
-    title: "AI chat interface",
-    description: "Streaming chat UI with markdown and code blocks.",
-    stack: ["Next.js", "OpenAI", "Vercel"],
-    image: "/api/placeholder/400/240",
+    title: "CopilotUI",
+    description:
+      "AI conversational interface with streaming responses, markdown and code blocks, prompt history.",
+    stack: ["Next.js", "Tailwind", "Markdown", "Syntax highlighter"],
     liveUrl: "#",
     repoUrl: "#",
   },
   {
-    title: "Landing page system",
-    description: "Modular sections and CTA blocks for marketing sites.",
-    stack: ["Next.js", "MDX", "Tailwind"],
-    image: "/api/placeholder/400/240",
+    title: "LaunchFrame",
+    description:
+      "Landing page framework with hero variants, features, pricing, testimonials, FAQ — conversion-focused.",
+    stack: ["Next.js", "Tailwind", "Framer Motion"],
     liveUrl: "#",
     repoUrl: "#",
   },
   {
-    title: "Component library",
-    description: "Design system with tokens and dark mode.",
-    stack: ["React", "Tailwind", "Storybook"],
-    image: "/api/placeholder/400/240",
-    liveUrl: "#",
-    repoUrl: "#",
-  },
-  {
-    title: "Analytics panel",
-    description: "Real-time metrics and event tracking dashboard.",
-    stack: ["Next.js", "PostgreSQL", "Charts"],
-    image: "/api/placeholder/400/240",
+    title: "InsightGrid",
+    description:
+      "Analytics and data visualization panel with KPIs, revenue charts, funnels, heatmaps, export.",
+    stack: ["Next.js", "Tailwind", "Recharts"],
     liveUrl: "#",
     repoUrl: "#",
   },
 ];
-
-export const DEMOS_SECTION = {
-  title: "Demo builds",
-  description:
-    "Self-initiated projects that show what I can build. Live links and repos when available.",
-};

@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
 
+import { HERO_CONTENT } from "../constants/hero";
+
 export default function Hero() {
   return (
     <section
@@ -15,29 +17,30 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="font-mono text-sm text-accent-cyan mb-4"
+          className="font-mono text-sm text-[var(--accent-cyan)] mb-4"
         >
-          $ whoami
+          {HERO_CONTENT.terminalPrompt}
         </motion.p>
 
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[var(--foreground)] leading-tight"
         >
-          Building modern web apps{" "}
-          <span className="gradient-text">at startup speed.</span>
+          {HERO_CONTENT.headline.main}{" "}
+          <span className="gradient-text">
+            {HERO_CONTENT.headline.highlight}
+          </span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 text-lg text-muted max-w-xl"
+          className="mt-6 text-lg text-[var(--muted)] max-w-xl"
         >
-          Frontend & full-stack development for fast-moving teams. I ship
-          production-ready apps and interfaces—no endless discovery, no bloat.
+          {HERO_CONTENT.subtext}
         </motion.p>
 
         <motion.div
@@ -47,18 +50,18 @@ export default function Hero() {
           className="mt-8 flex flex-wrap gap-4"
         >
           <Link
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-accent-cyan to-accent-purple px-5 py-3 text-sm font-medium text-background hover:opacity-90 transition-opacity"
+            href={HERO_CONTENT.ctas.primary.href}
+            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[var(--accent-cyan)] to-[var(--accent-purple)] px-5 py-3 text-sm font-medium text-[var(--cta-text)] hover:opacity-90 transition-opacity"
           >
-            Start a Project
+            {HERO_CONTENT.ctas.primary.label}
             <ArrowRight size={16} />
           </Link>
           <Link
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-medium text-foreground hover:border-accent-cyan hover:text-accent-cyan transition-colors"
+            href={HERO_CONTENT.ctas.secondary.href}
+            className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] px-5 py-3 text-sm font-medium text-[var(--foreground)] hover:border-[var(--accent-cyan)] hover:text-[var(--accent-cyan)] transition-colors"
           >
             <Calendar size={16} />
-            Book a Call
+            {HERO_CONTENT.ctas.secondary.label}
           </Link>
         </motion.div>
 
@@ -66,14 +69,14 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-10 inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 glass-card"
+          className="mt-10 inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-4 py-2 glass-card"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           </span>
-          <span className="font-mono text-sm text-foreground">
-            Available for gigs
+          <span className="font-mono text-sm text-[var(--foreground)]">
+            {HERO_CONTENT.availability.badge}
           </span>
         </motion.div>
 
@@ -81,9 +84,11 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-8 font-mono text-sm text-muted"
+          className="mt-8 font-mono text-sm text-[var(--muted)]"
         >
-          <span className="cursor-blink">Ready to ship.</span>
+          <span className="cursor-blink">
+            {HERO_CONTENT.availability.status}
+          </span>
         </motion.p>
       </div>
     </section>

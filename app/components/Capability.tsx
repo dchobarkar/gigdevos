@@ -1,54 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  LayoutDashboard,
-  Globe,
-  Bot,
-  Settings,
-  FileCode,
-  Wrench,
-} from "lucide-react";
 
-const SERVICES = [
-  {
-    icon: LayoutDashboard,
-    title: "SaaS Dashboards",
-    description:
-      "Data-heavy UIs, charts, and real-time metrics for product teams.",
-    tags: ["React", "Charts", "APIs"],
-  },
-  {
-    icon: Globe,
-    title: "Marketing Websites",
-    description: "Fast, SEO-friendly landing pages and campaign sites.",
-    tags: ["Next.js", "Tailwind", "Vercel"],
-  },
-  {
-    icon: Bot,
-    title: "AI Tool Interfaces",
-    description: "Chat UIs, prompt builders, and AI-powered workflows.",
-    tags: ["LLMs", "Streaming", "APIs"],
-  },
-  {
-    icon: Settings,
-    title: "Admin Panels",
-    description: "Internal tools and CRUD interfaces for operations.",
-    tags: ["Tables", "Auth", "DB"],
-  },
-  {
-    icon: FileCode,
-    title: "Portfolio Sites",
-    description: "Developer and creative portfolios that convert.",
-    tags: ["Static", "MDX", "CMS"],
-  },
-  {
-    icon: Wrench,
-    title: "Internal Tools",
-    description: "Custom tooling to automate and streamline workflows.",
-    tags: ["Node", "Scripts", "Integrations"],
-  },
-];
+import { SERVICES, CAPABILITY_SECTION } from "../constants/services";
 
 const container = {
   hidden: { opacity: 0 },
@@ -71,17 +25,17 @@ export default function Capability() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
+          className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4"
         >
-          What I build
+          {CAPABILITY_SECTION.title}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-muted max-w-xl mb-16"
+          className="text-[var(--muted)] max-w-xl mb-16"
         >
-          Capability over case studies. Here’s the kind of work I ship.
+          {CAPABILITY_SECTION.description}
         </motion.p>
 
         <motion.div
@@ -95,22 +49,24 @@ export default function Capability() {
             <motion.article
               key={service.title}
               variants={item}
-              className="glass-card rounded-xl p-6 hover-glow border border-border"
+              className="glass-card rounded-xl p-6 hover-glow border border-[var(--border)]"
             >
               <service.icon
-                className="mb-4 text-accent-cyan"
+                className="mb-4 text-[var(--accent-cyan)]"
                 size={28}
                 strokeWidth={1.5}
               />
-              <h3 className="text-lg font-semibold text-foreground mb-2">
+              <h3 className="text-lg font-semibold text-[var(--foreground)] mb-2">
                 {service.title}
               </h3>
-              <p className="text-sm text-muted mb-4">{service.description}</p>
+              <p className="text-sm text-[var(--muted)] mb-4">
+                {service.description}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {service.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-xs px-2 py-1 rounded bg-(--border)/50 text-muted"
+                    className="font-mono text-xs px-2 py-1 rounded bg-[var(--border)]/50 text-[var(--muted)]"
                   >
                     {tag}
                   </span>

@@ -1,15 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
 
 import { EXPERIENCES, EXPERIENCE_SECTION } from "../constants/experience";
 
 export default function NDAExperience() {
   return (
-    <section id="experience" className="relative py-24 px-6 grid-overlay">
+    <section
+      id="experience"
+      className="relative py-24 px-6 grid-overlay"
+      aria-labelledby="experience-heading"
+    >
       <div className="mx-auto max-w-6xl">
         <motion.h2
+          id="experience-heading"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -26,7 +30,7 @@ export default function NDAExperience() {
           {EXPERIENCE_SECTION.description}
         </motion.p>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {EXPERIENCES.map((exp, i) => (
             <motion.article
               key={exp.title}
@@ -34,17 +38,30 @@ export default function NDAExperience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="glass-card rounded-xl p-6 border border-[var(--border)] hover-glow"
+              className="glass-card rounded-xl p-6 border border-[var(--border)] hover-glow transition-shadow duration-200"
             >
-              <Briefcase
-                className="mb-4 text-[var(--accent-purple)]"
-                size={24}
-                strokeWidth={1.5}
-              />
+              <div
+                className="mb-4 inline-flex rounded-lg p-2 text-[var(--accent-purple)]"
+                aria-hidden
+              >
+                <exp.icon size={24} strokeWidth={1.5} />
+              </div>
               <h3 className="text-lg font-semibold text-[var(--foreground)] mb-2">
                 {exp.title}
               </h3>
-              <p className="text-sm text-[var(--muted)]">{exp.description}</p>
+              <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">
+                {exp.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {exp.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex rounded-md border border-[var(--border)]/60 bg-[var(--border)]/20 px-2.5 py-1 text-xs font-medium text-[var(--muted)]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </motion.article>
           ))}
         </div>

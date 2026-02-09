@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-
 import { FOOTER_CONTENT } from "../constants/footer";
 
 export default function Footer() {
@@ -23,16 +21,21 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex items-center gap-6"
+            className="flex flex-wrap items-center justify-center gap-4 md:gap-6"
+            aria-label="Contact and profiles"
           >
             {FOOTER_CONTENT.links.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
+                {...(link.href.startsWith("http") && {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                })}
                 className="text-sm text-[var(--muted)] hover:text-[var(--accent-cyan)] transition-colors"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </motion.nav>
         </div>

@@ -1,15 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import {
-  CONTACT_LINKS,
   CONTACT_SECTION,
-  PRIMARY_CONTACT,
-  PROFILE_LINKS,
+  EMAIL_CTA,
+  RESPONSE_MICROCOPY,
+  PLATFORM_ROUTING,
 } from "../constants/contact";
 
-/** X (Twitter) icon — Lucide uses this name */
 function XIcon({ size = 20 }: { size?: number }) {
   return (
     <svg
@@ -25,89 +24,110 @@ function XIcon({ size = 20 }: { size?: number }) {
   );
 }
 
+const PLATFORM_ICONS = {
+  linkedin: Linkedin,
+  github: Github,
+  x: XIcon,
+} as const;
+
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-24 px-6 grid-overlay">
-      <div className="mx-auto max-w-3xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4 text-center"
-        >
-          {CONTACT_SECTION.title}
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-[var(--muted)] text-center mb-12"
-        >
-          {CONTACT_SECTION.description}
-        </motion.p>
+    <section
+      id="contact"
+      className="relative py-24 px-6 grid-overlay"
+      aria-labelledby="contact-heading"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left column: title, description, email CTA, microcopy */}
+          <div className="flex flex-col">
+            <motion.h2
+              id="contact-heading"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4"
+            >
+              {CONTACT_SECTION.title}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-[var(--muted)] mb-8 max-w-lg"
+            >
+              {CONTACT_SECTION.description}
+            </motion.p>
 
-        {/* Primary: Email + LinkedIn */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-6 mb-8"
-        >
-          {PRIMARY_CONTACT.map((key) => {
-            const link = CONTACT_LINKS[key];
-            const isEmail = key === "email";
-            return (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-6"
+            >
               <a
-                key={key}
-                href={link.href}
-                {...(!isEmail && {
-                  target: "_blank",
-                  rel: "noopener noreferrer",
-                })}
-                className="inline-flex items-center gap-3 rounded-lg border border-[var(--border)] px-6 py-4 text-base font-medium text-[var(--foreground)] hover:border-[var(--accent-cyan)] hover:text-[var(--accent-cyan)] hover-glow transition-all"
+                href={EMAIL_CTA.href}
+                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[var(--accent-cyan)] to-[var(--accent-purple)] px-6 py-4 text-base font-medium text-[var(--cta-text)] shadow-[0_0_24px_rgba(34,211,238,0.2)] hover:shadow-[0_0_32px_rgba(34,211,238,0.3)] hover:opacity-95 transition-all duration-200"
+                aria-label="Send project inquiry by email"
               >
-                {key === "linkedin" ? (
-                  <Linkedin size={20} />
-                ) : (
-                  <Mail size={20} />
-                )}
-                {link.label}
+                <Mail size={20} aria-hidden />
+                {EMAIL_CTA.label}
               </a>
-            );
-          })}
-        </motion.div>
+            </motion.div>
 
-        {/* Secondary: X + GitHub — profile links */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-sm text-[var(--muted)] mb-3"
-        >
-          {CONTACT_SECTION.profilesLabel}
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4"
-        >
-          {PROFILE_LINKS.map((key) => {
-            const link = CONTACT_LINKS[key];
-            return (
-              <a
-                key={key}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)]/60 px-4 py-2.5 text-sm text-[var(--muted)] hover:border-[var(--accent-cyan)] hover:text-[var(--accent-cyan)] transition-colors"
-              >
-                {key === "x" ? <XIcon size={18} /> : <Github size={18} />}
-                {link.label}
-              </a>
-            );
-          })}
-        </motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-sm text-[var(--muted)]"
+            >
+              {RESPONSE_MICROCOPY}
+            </motion.p>
+          </div>
+
+          {/* Right column: platform routing grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4"
+          >
+            {PLATFORM_ROUTING.map((platform) => {
+              const Icon = PLATFORM_ICONS[platform.key];
+              return (
+                <a
+                  key={platform.key}
+                  href={platform.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-xl border border-[var(--border)] glass-card p-5 hover-glow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--accent-cyan)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
+                  aria-label={`${platform.ctaLabel} — opens in new tab`}
+                >
+                  <div className="flex shrink-0 rounded-lg p-2.5 text-[var(--muted)] group-hover:text-[var(--accent-cyan)] transition-colors border border-[var(--border)]/60">
+                    {platform.key === "x" ? (
+                      <XIcon size={22} />
+                    ) : (
+                      <Icon size={22} aria-hidden />
+                    )}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="block font-semibold text-[var(--foreground)]">
+                      {platform.name}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-sm text-[var(--muted)] group-hover:text-[var(--accent-cyan)] transition-colors">
+                      {platform.ctaLabel}
+                      <ArrowUpRight
+                        size={14}
+                        className="shrink-0"
+                        aria-hidden
+                      />
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

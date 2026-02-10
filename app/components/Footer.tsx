@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github } from "lucide-react";
+
 import { FOOTER_CONTENT, type FooterLinkKey } from "../constants/footer";
 
-function XIcon({ size = 20 }: { size?: number }) {
+const XIcon = ({ size = 20 }: { size?: number }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,11 +18,11 @@ function XIcon({ size = 20 }: { size?: number }) {
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
-}
+};
 
 const ICON_SIZE = 20;
 
-function FooterIcon({ linkKey }: { linkKey: FooterLinkKey }) {
+const FooterIcon = ({ linkKey }: { linkKey: FooterLinkKey }) => {
   switch (linkKey) {
     case "email":
       return <Mail size={ICON_SIZE} className="shrink-0" />;
@@ -32,18 +33,18 @@ function FooterIcon({ linkKey }: { linkKey: FooterLinkKey }) {
     case "github":
       return <Github size={ICON_SIZE} className="shrink-0" />;
   }
-}
+};
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <footer className="relative border-t border-[var(--border)] py-8 px-6">
+    <footer className="relative border-t border-border py-8 px-6">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="font-mono text-sm text-[var(--muted)]"
+            className="font-mono text-sm text-muted"
           >
             {FOOTER_CONTENT.copyright}
           </motion.p>
@@ -66,7 +67,7 @@ export default function Footer() {
                     target: "_blank",
                     rel: "noopener noreferrer",
                   })}
-                  className="p-2.5 rounded-lg text-[var(--muted)] hover:text-[var(--accent-cyan)] hover:bg-[var(--border)]/30 transition-colors"
+                  className="p-2.5 rounded-lg text-muted hover:text-accent-cyan hover:bg-border/30 transition-colors"
                 >
                   <FooterIcon linkKey={link.key} />
                 </a>
@@ -77,4 +78,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

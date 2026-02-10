@@ -8,9 +8,10 @@
   --accent-cyan: #22d3ee;
   --accent-purple: #a78bfa;
   --muted: #71717a;
+  --cta-text: #0a0a0a;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -18,6 +19,7 @@
   --color-accent-cyan: var(--accent-cyan);
   --color-accent-purple: var(--accent-purple);
   --color-muted: var(--muted);
+  --color-cta-text: var(--cta-text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

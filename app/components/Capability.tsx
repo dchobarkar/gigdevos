@@ -17,10 +17,10 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
-export default function Capability() {
+const Capability = () => {
   return (
     <section
-      id="capability"
+      id="services"
       className="relative py-24 px-6 grid-overlay"
       aria-labelledby="services-heading"
     >
@@ -30,7 +30,7 @@ export default function Capability() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4"
+          className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
         >
           {CAPABILITY_SECTION.title}
         </motion.h2>
@@ -38,7 +38,7 @@ export default function Capability() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[var(--muted)] max-w-xl mb-16"
+          className="text-muted max-w-xl mb-16"
         >
           {CAPABILITY_SECTION.description}
         </motion.p>
@@ -54,18 +54,18 @@ export default function Capability() {
             <motion.article
               key={service.title}
               variants={item}
-              className="group glass-card rounded-xl p-6 border border-[var(--border)] hover-glow transition-shadow duration-200"
+              className="group glass-card rounded-xl p-6 border border-border hover-glow transition-shadow duration-200"
             >
               <div
-                className="mb-4 inline-flex rounded-lg p-2 text-[var(--accent-cyan)] transition-transform duration-200 group-hover:scale-110"
+                className="mb-4 inline-flex rounded-lg p-2 text-accent-cyan transition-transform duration-200 group-hover:scale-110"
                 aria-hidden
               >
                 <service.icon size={28} strokeWidth={1.5} />
               </div>
-              <h3 className="text-lg font-semibold text-[var(--foreground)] mb-2">
+              <h3 className="text-lg font-semibold text-foreground mb-2">
                 {service.title}
               </h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed">
+              <p className="text-sm text-muted leading-relaxed">
                 {service.description}
               </p>
             </motion.article>
@@ -74,4 +74,6 @@ export default function Capability() {
       </div>
     </section>
   );
-}
+};
+
+export default Capability;

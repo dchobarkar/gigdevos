@@ -1,32 +1,25 @@
 import {
   LayoutDashboard,
-  type LucideIcon,
   Bot,
   Settings,
   FileCode,
   Wrench,
   Globe,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-/**
- * Service card — outcome-focused, product build menu.
- * Per service-instructions.md: title, one-line description, icon.
- * Optional tech tags omitted for v1 to avoid tech overload.
- */
 export interface Service {
   icon: LucideIcon;
   title: string;
   description: string;
 }
 
-/** Section header per service-instructions.md */
 export const CAPABILITY_SECTION = {
   title: "What I can build",
   description:
-    "From idea to production — these are the products and interfaces I ship most often.",
+    "From idea to production, these are the products and interfaces I ship most often.",
 };
 
-/** 6 core build capabilities — final content from service-instructions.md */
 export const SERVICES: Service[] = [
   {
     icon: LayoutDashboard,

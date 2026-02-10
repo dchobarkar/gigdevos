@@ -1,6 +1,3 @@
-/**
- * Hero section content — per hero-instructions.md
- */
 export const HERO_CONTENT = {
   terminal: {
     command: "$ whoami",
@@ -11,7 +8,7 @@ export const HERO_CONTENT = {
     line2: "at startup speed.",
   },
   subtext:
-    "I design and build SaaS dashboards, AI interfaces, marketing websites, and internal tools for founders and product teams — delivered fast, scalable, and production-ready.",
+    "I design and build SaaS dashboards, AI interfaces, marketing websites, and internal tools for founders and product teams, delivered fast, scalable, and production-ready.",
   capabilityHighlights: [
     "SaaS Dashboards",
     "AI Tool Interfaces",
@@ -28,7 +25,6 @@ export const HERO_CONTENT = {
       label: "Start a build",
       href: "#contact",
     },
-    /** Platform keys for secondary CTAs — use CONTACT_LINKS in component */
     secondaryPlatforms: ["linkedin", "github", "x"] as const,
   },
 };

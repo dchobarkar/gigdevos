@@ -6,7 +6,7 @@ import Process from "./components/Process";
 import NDAExperience from "./components/NDAExperience";
 import Contact from "./components/Contact";
 
-export default function Page() {
+const Page = () => {
   return (
     <main>
       <Hero />
@@ -18,4 +18,6 @@ export default function Page() {
       <Contact />
     </main>
   );
-}
+};
+
+export default Page;

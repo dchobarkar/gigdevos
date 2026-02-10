@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, ArrowUpRight } from "lucide-react";
+
 import {
   CONTACT_SECTION,
   EMAIL_CTA,
@@ -9,7 +10,7 @@ import {
   PLATFORM_ROUTING,
 } from "../constants/contact";
 
-function XIcon({ size = 20 }: { size?: number }) {
+const XIcon = ({ size = 20 }: { size?: number }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +23,7 @@ function XIcon({ size = 20 }: { size?: number }) {
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
-}
+};
 
 const PLATFORM_ICONS = {
   linkedin: Linkedin,
@@ -30,7 +31,7 @@ const PLATFORM_ICONS = {
   x: XIcon,
 } as const;
 
-export default function Contact() {
+const Contact = () => {
   return (
     <section
       id="contact"
@@ -39,14 +40,13 @@ export default function Contact() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left column: title, description, email CTA, microcopy */}
           <div className="flex flex-col">
             <motion.h2
               id="contact-heading"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4"
+              className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
             >
               {CONTACT_SECTION.title}
             </motion.h2>
@@ -54,7 +54,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[var(--muted)] mb-8 max-w-lg"
+              className="text-muted mb-8 max-w-lg"
             >
               {CONTACT_SECTION.description}
             </motion.p>
@@ -67,7 +67,7 @@ export default function Contact() {
             >
               <a
                 href={EMAIL_CTA.href}
-                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[var(--accent-cyan)] to-[var(--accent-purple)] px-6 py-4 text-base font-medium text-[var(--cta-text)] shadow-[0_0_24px_rgba(34,211,238,0.2)] hover:shadow-[0_0_32px_rgba(34,211,238,0.3)] hover:opacity-95 transition-all duration-200"
+                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent-cyan to-accent-purple px-6 py-4 text-base font-medium text-cta-text shadow-[0_0_24px_rgba(34,211,238,0.2)] hover:shadow-[0_0_32px_rgba(34,211,238,0.3)] hover:opacity-95 transition-all duration-200"
                 aria-label="Send project inquiry by email"
               >
                 <Mail size={20} aria-hidden />
@@ -79,13 +79,12 @@ export default function Contact() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-sm text-[var(--muted)]"
+              className="text-sm text-muted"
             >
               {RESPONSE_MICROCOPY}
             </motion.p>
           </div>
 
-          {/* Right column: platform routing grid */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -100,10 +99,10 @@ export default function Contact() {
                   href={platform.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-xl border border-[var(--border)] glass-card p-5 hover-glow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--accent-cyan)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
+                  className="group flex items-center gap-4 rounded-xl border border-border glass-card p-5 hover-glow transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-background"
                   aria-label={`${platform.ctaLabel} — opens in new tab`}
                 >
-                  <div className="flex shrink-0 rounded-lg p-2.5 text-[var(--muted)] group-hover:text-[var(--accent-cyan)] transition-colors border border-[var(--border)]/60">
+                  <div className="flex shrink-0 rounded-lg p-2.5 text-muted group-hover:text-accent-cyan transition-colors border border-border/60">
                     {platform.key === "x" ? (
                       <XIcon size={22} />
                     ) : (
@@ -111,10 +110,10 @@ export default function Contact() {
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <span className="block font-semibold text-[var(--foreground)]">
+                    <span className="block font-semibold text-foreground">
                       {platform.name}
                     </span>
-                    <span className="flex items-center gap-1.5 text-sm text-[var(--muted)] group-hover:text-[var(--accent-cyan)] transition-colors">
+                    <span className="flex items-center gap-1.5 text-sm text-muted group-hover:text-accent-cyan transition-colors">
                       {platform.ctaLabel}
                       <ArrowUpRight
                         size={14}
@@ -131,4 +130,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;

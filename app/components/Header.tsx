@@ -5,17 +5,9 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-const NAV_LINKS = [
-  { href: "#hero", label: "Home" },
-  { href: "#capability", label: "Services" },
-  { href: "#demos", label: "Demos" },
-  { href: "#stack", label: "Stack" },
-  { href: "#process", label: "Process" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
-];
+import { NAV_LINKS } from "../constants/nav";
 
-export default function Header() {
+const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -30,7 +22,7 @@ export default function Header() {
           href="#hero"
           className="font-mono text-lg font-medium tracking-tight text-foreground hover:text-accent-cyan transition-colors"
         >
-          gigdevos
+          GigDevOs
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -76,4 +68,6 @@ export default function Header() {
       )}
     </motion.header>
   );
-}
+};
+
+export default Header;

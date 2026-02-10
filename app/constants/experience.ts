@@ -1,14 +1,6 @@
-import {
-  BarChart3,
-  Rocket,
-  Factory,
-  type LucideIcon,
-} from "lucide-react";
+import { BarChart3, Rocket, Factory } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-/**
- * One anonymized experience card — system type, not employer.
- * Per experience-instructions.md: title, description, capability tags.
- */
 export interface Experience {
   icon: LucideIcon;
   title: string;
@@ -16,14 +8,12 @@ export interface Experience {
   tags: string[];
 }
 
-/** Section header per experience-instructions.md */
 export const EXPERIENCE_SECTION = {
   title: "Selected experience",
   description:
     "Anonymized product and platform work delivered across startups and enterprise teams.",
 };
 
-/** 3 experience categories — final content from experience-instructions.md */
 export const EXPERIENCES: Experience[] = [
   {
     icon: BarChart3,

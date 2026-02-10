@@ -1,8 +1,3 @@
-/**
- * Contact section — per contact-instructions.md.
- * No form; direct channels only. Email primary; LinkedIn, GitHub, X for trust.
- */
-
 const EMAIL_ADDRESS = "dchobarkar@gmail.com";
 
 export const CONTACT_LINKS = {
@@ -24,23 +19,19 @@ export const CONTACT_LINKS = {
   },
 };
 
-/** Section header per contact-instructions.md */
 export const CONTACT_SECTION = {
   title: "Start a build",
   description:
-    "Have a product idea, dashboard, or website you need shipped fast? Reach out directly — I'll get back with timelines and next steps.",
+    "Have a product idea, dashboard, or website you need shipped fast? Reach out directly. I'll get back with timelines and next steps.",
 };
 
-/** Primary CTA — email only */
 export const EMAIL_CTA = {
   label: "Send project inquiry",
   href: CONTACT_LINKS.email.href,
 };
 
-/** Response expectation microcopy */
 export const RESPONSE_MICROCOPY = "I typically respond within 24 hours.";
 
-/** Platform routing grid — trust/discovery (no email; email is primary CTA above) */
 export const PLATFORM_ROUTING = [
   {
     key: "linkedin" as const,

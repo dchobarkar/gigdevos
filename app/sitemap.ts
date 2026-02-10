@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const sitemap = (): MetadataRoute.Sitemap => {
   const baseUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
-    : "https://gigdevos.com";
+    : "https://gigdevos.vercel.app";
 
   return [
     {
@@ -13,4 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
   ];
-}
+};
+
+export default sitemap;

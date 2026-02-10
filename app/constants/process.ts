@@ -5,27 +5,21 @@ import {
   RefreshCw,
   Rocket,
   Wrench,
-  type LucideIcon,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-/**
- * One stage in the execution process pipeline.
- * Descriptions kept under 12 words per process-instructions.md.
- */
 export interface ProcessStep {
   icon: LucideIcon;
   label: string;
   description: string;
 }
 
-/** Section header per process-instructions.md */
 export const PROCESS_SECTION = {
   title: "Execution process",
   description:
     "A structured build pipeline designed to reduce friction and ship reliably.",
 };
 
-/** 6 delivery stages — final content from process-instructions.md */
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     icon: MessageSquare,

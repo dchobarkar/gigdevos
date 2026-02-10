@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { EXPERIENCES, EXPERIENCE_SECTION } from "../constants/experience";
 
-export default function NDAExperience() {
+const NDAExperience = () => {
   return (
     <section
       id="experience"
@@ -17,7 +17,7 @@ export default function NDAExperience() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4"
+          className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
         >
           {EXPERIENCE_SECTION.title}
         </motion.h2>
@@ -25,7 +25,7 @@ export default function NDAExperience() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[var(--muted)] max-w-xl mb-16"
+          className="text-muted max-w-xl mb-16"
         >
           {EXPERIENCE_SECTION.description}
         </motion.p>
@@ -38,25 +38,25 @@ export default function NDAExperience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="glass-card rounded-xl p-6 border border-[var(--border)] hover-glow transition-shadow duration-200"
+              className="glass-card rounded-xl p-6 border border-border hover-glow transition-shadow duration-200"
             >
               <div
-                className="mb-4 inline-flex rounded-lg p-2 text-[var(--accent-purple)]"
+                className="mb-4 inline-flex rounded-lg p-2 text-accent-purple"
                 aria-hidden
               >
                 <exp.icon size={24} strokeWidth={1.5} />
               </div>
-              <h3 className="text-lg font-semibold text-[var(--foreground)] mb-2">
+              <h3 className="text-lg font-semibold text-foreground mb-2">
                 {exp.title}
               </h3>
-              <p className="text-sm text-[var(--muted)] leading-relaxed mb-4">
+              <p className="text-sm text-muted leading-relaxed mb-4">
                 {exp.description}
               </p>
               <div className="flex flex-wrap gap-2">
                 {exp.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="inline-flex rounded-md border border-[var(--border)]/60 bg-[var(--border)]/20 px-2.5 py-1 text-xs font-medium text-[var(--muted)]"
+                    className="inline-flex rounded-md border border-border/60 bg-border/20 px-2.5 py-1 text-xs font-medium text-muted"
                   >
                     {tag}
                   </span>
@@ -68,4 +68,6 @@ export default function NDAExperience() {
       </div>
     </section>
   );
-}
+};
+
+export default NDAExperience;

@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+
 import { STACK_GROUPS, STACK_SECTION } from "../constants/stack";
 
-export default function TechStack() {
+const TechStack = () => {
   return (
     <section
-      id="stack"
+      id="tech-stack"
       className="relative py-24 px-6 grid-overlay"
       aria-labelledby="stack-heading"
     >
@@ -16,7 +17,7 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4"
+          className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
         >
           {STACK_SECTION.title}
         </motion.h2>
@@ -24,7 +25,7 @@ export default function TechStack() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[var(--muted)] max-w-xl mb-16"
+          className="text-muted max-w-xl mb-16"
         >
           {STACK_SECTION.description}
         </motion.p>
@@ -37,16 +38,16 @@ export default function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: gi * 0.08 }}
-              className="glass-card rounded-xl p-6 border border-[var(--border)] hover-glow transition-shadow duration-200"
+              className="glass-card rounded-xl p-6 border border-border hover-glow transition-shadow duration-200"
             >
               <div className="flex items-center gap-2 mb-6">
                 <group.icon
-                  className="text-[var(--accent-cyan)] shrink-0"
+                  className="text-accent-cyan shrink-0"
                   size={24}
                   strokeWidth={1.5}
                   aria-hidden
                 />
-                <h3 className="text-base font-semibold text-[var(--foreground)]">
+                <h3 className="text-base font-semibold text-foreground">
                   {group.title}
                 </h3>
               </div>
@@ -54,17 +55,17 @@ export default function TechStack() {
                 {group.items.map((item) => (
                   <li
                     key={item.label}
-                    className="group/item flex items-center gap-3 text-sm text-[var(--muted)]"
+                    className="group/item flex items-center gap-3 text-sm text-muted"
                   >
                     <span
-                      className="flex shrink-0 items-center justify-center rounded p-0.5 text-[var(--border)] transition-colors group-hover/item:text-[var(--accent-cyan)]"
+                      className="flex shrink-0 items-center justify-center rounded p-0.5 text-border transition-colors group-hover/item:text-accent-cyan"
                       aria-hidden
                     >
                       <item.icon size={18} strokeWidth={1.5} />
                     </span>
                     <span
                       title={item.tooltip}
-                      className="font-medium text-[var(--foreground)]"
+                      className="font-medium text-foreground"
                     >
                       {item.label}
                     </span>
@@ -77,4 +78,6 @@ export default function TechStack() {
       </div>
     </section>
   );
-}
+};
+
+export default TechStack;

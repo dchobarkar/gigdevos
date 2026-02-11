@@ -4,6 +4,7 @@ export interface Demo {
   stack: string[];
   liveUrl: string;
   repoUrl: string;
+  image?: string;
 }
 
 export const DEMOS_SECTION = {
@@ -16,10 +17,11 @@ export const DEMOS: Demo[] = [
   {
     title: "PulseBoard",
     description:
-      "SaaS dashboard system with sidebar nav, analytics, data tables, charts, and settings, dark/light theme.",
-    stack: ["Next.js", "Tailwind", "Recharts"],
-    liveUrl: "#",
-    repoUrl: "#",
+      "SaaS dashboard system with sidebar nav, analytics, data tables, charts, and settings — dark/light theme.",
+    stack: ["Next.js", "Tailwind", "Recharts", "Framer Motion"],
+    liveUrl: "https://pulseboard-beta.vercel.app",
+    repoUrl: "https://github.com/dchobarkar/pulseboard",
+    image: "/demos/pulseboard.png",
   },
   {
     title: "CopilotUI",

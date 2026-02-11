@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 
 import { DEMOS, DEMOS_SECTION } from "../constants/demos";
 
@@ -41,12 +42,22 @@ const DemoBuilds = () => {
               transition={{ delay: i * 0.06 }}
               className="glass-card rounded-xl overflow-hidden border border-border hover-glow group"
             >
-              <div className="aspect-[5/3] bg-card border-b border-border flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-br from-border/30 to-card flex items-center justify-center">
-                  <span className="font-mono text-xs text-muted">
-                    Demo preview
-                  </span>
-                </div>
+              <div className="aspect-[5/3] bg-card border-b border-border overflow-hidden relative">
+                {demo.image ? (
+                  <Image
+                    src={demo.image}
+                    alt={`${demo.title} dashboard screenshot`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-border/30 to-card flex items-center justify-center">
+                    <span className="font-mono text-xs text-muted">
+                      Demo preview
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="p-5">
                 <h3 className="text-lg font-semibold text-foreground mb-2">

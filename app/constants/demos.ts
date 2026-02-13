@@ -26,10 +26,11 @@ export const DEMOS: Demo[] = [
   {
     title: "CopilotUI",
     description:
-      "AI conversational interface with streaming responses, markdown and code blocks, prompt history.",
+      "AI conversational interface with streaming responses, markdown and code blocks, prompt history, light/dark theme.",
     stack: ["Next.js", "Tailwind", "Markdown", "Syntax highlighter"],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://copilotui-ten.vercel.app/chat",
+    repoUrl: "https://github.com/dchobarkar/copilotui",
+    image: "/demos/copilotui.png",
   },
   {
     title: "LaunchFrame",

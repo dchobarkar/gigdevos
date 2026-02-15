@@ -35,10 +35,11 @@ export const DEMOS: Demo[] = [
   {
     title: "LaunchFrame",
     description:
-      "Landing page framework with hero variants, features, pricing, testimonials, FAQ. conversion-focused.",
-    stack: ["Next.js", "Tailwind"],
-    liveUrl: "#",
-    repoUrl: "#",
+      "Modular landing framework for SaaS, AI, agency, e-commerce, fintech, and marketing — hero, features, pricing, testimonials, FAQ.",
+    stack: ["Next.js", "Tailwind", "Lucide"],
+    liveUrl: "https://launchframe-plum.vercel.app",
+    repoUrl: "https://github.com/dchobarkar/launchframe",
+    image: "/demos/launchframe.png",
   },
   {
     title: "InsightGrid",
